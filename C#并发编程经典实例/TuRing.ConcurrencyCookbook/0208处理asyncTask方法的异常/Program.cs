@@ -3,19 +3,19 @@ using System.Threading.Tasks;
 
 namespace _0208处理asyncTask方法的异常
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
         }
 
-        static async Task ThrowExceptionAsync()
+        private static async Task ThrowExceptionAsync()
         {
             await Task.Delay(TimeSpan.FromSeconds(1));
             throw new InvalidOperationException("Test");
         }
 
-        static async Task TestAsync()
+        private static async Task TestAsync()
         {
             try
             {
@@ -28,7 +28,7 @@ namespace _0208处理asyncTask方法的异常
             }
         }
 
-        static async Task TestAsync2()
+        private static async Task TestAsync2()
         {
             //抛出异常并将其存储在 Task 中
             var task = ThrowExceptionAsync();

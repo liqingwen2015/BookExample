@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("0205等待任意一个任务完成")]
+[assembly: AssemblyTitle("0305并行LINQ")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("0205等待任意一个任务完成")]
+[assembly: AssemblyProduct("0305并行LINQ")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("d00a03c8-2b3b-4d09-b51f-08a04503fbfa")]
+[assembly: Guid("541ce4a1-146c-45e7-bfb7-a80daca715a7")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

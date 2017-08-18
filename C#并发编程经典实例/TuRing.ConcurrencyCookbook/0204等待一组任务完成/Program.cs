@@ -1,7 +1,4 @@
-﻿//Task.WhenAll()：等待一组任务完成，当所有任务都完成时，返回一个完成的 Task 对象
-//使用 Task.WhenAll 时，一般只处理第一个错误就足够了，没必要要处理所有的错误
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;

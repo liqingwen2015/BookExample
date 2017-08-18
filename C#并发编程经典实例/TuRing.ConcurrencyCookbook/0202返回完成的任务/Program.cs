@@ -1,6 +1,4 @@
-﻿//实现一个具有异步签名的同步方法。如对异步代码做单元测试，以及生成方法存根或者模拟对象来产生同步接口
-
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
 namespace _0202返回完成的任务

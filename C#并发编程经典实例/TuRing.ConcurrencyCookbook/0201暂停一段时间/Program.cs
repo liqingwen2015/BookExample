@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 /// </summary>
 namespace _0201暂停一段时间
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-
-
             Console.Read();
         }
 
@@ -23,7 +21,7 @@ namespace _0201暂停一段时间
         /// <param name="result"></param>
         /// <param name="delay"></param>
         /// <returns></returns>
-        static async Task<T> DelayResult<T>(T result, TimeSpan delay)
+        private static async Task<T> DelayResult<T>(T result, TimeSpan delay)
         {
             await Task.Delay(delay);
             return result;
@@ -35,14 +33,14 @@ namespace _0201暂停一段时间
         /// <param name="uri"></param>
         /// <returns></returns>
         /// <remarks>在访问 Web 服务时，最好的方式就是采用指数退避，它可以防止服务器被太多的重试阻塞</remarks>
-        static async Task<string> DownloadStringWithRetries(string uri)
+        private static async Task<string> DownloadStringWithRetries(string uri)
         {
             using (var client = new HttpClient())
             {
                 //第1次重试前等1秒，第2次等2秒，第三次等4秒
                 var nextDelay = TimeSpan.FromSeconds(1);
 
-                for (int i = 0; i != 3; i++)
+                for (var i = 0; i != 3; i++)
                 {
                     try
                     {
@@ -67,7 +65,7 @@ namespace _0201暂停一段时间
         /// <param name="uri"></param>
         /// <returns></returns>
         /// <remarks>如果服务在3秒内没有响应，就返回 null</remarks>
-        static async Task<string> DownloadStringWithTimeout(string uri)
+        private static async Task<string> DownloadStringWithTimeout(string uri)
         {
             using (var client = new HttpClient())
             {

@@ -1,14 +1,11 @@
-﻿//执行多个任务，只需要对其中任意一个的完成进行响应。如：同时向多个 Web 服务询问股票价格，但只关心第一个响应的。
-//Task.WhenAny
-
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace _0205等待任意一个任务完成
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
         }
 
