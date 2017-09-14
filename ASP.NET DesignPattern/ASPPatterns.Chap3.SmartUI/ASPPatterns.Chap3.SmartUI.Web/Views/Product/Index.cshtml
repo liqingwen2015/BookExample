@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ASPPatterns.Chap3.SmartUI.Web.Models.ProductViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div>
+    显示价格：
+    <select id="slDiscountType">
+        <option value="0" selected="selected">无折扣</option>
+        <option value="1">有折扣</option>
+    </select>
+</div>
+
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.SellingPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rrp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.SellingPrice.ToString("C"))*@
+            <input id="sellingPrice" name="SellingPrice" value="" placeholder="SellingPrice"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rrp)
+        </td>
+        
+        <td>
+            折扣：<span id="spanDiscount">@Html.DisplayFor(modelItem => item.Discount)</span>
+        </td>
+        
+        <td>
+            节省：<span id="spanSavings">@Html.DisplayFor(modelItem => item.Savings)</span>
+</td>
+
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+        </td>*@
+    </tr>
+}
+
+</table>
+<script>
+    $('#slDiscountType').change(function() {
+        $.get('/Product/UpdateIndex',
+            {
+                rrp: $('#sellingPrice').val(),
+                sellingPrice: $('#sellingPrice').val(),
+                discountType: $('#slDiscountType').val()
+            },
+            function(result) {
+                $('#spanSavings').html(result.Savings);
+                $('#spanDiscount').html(result.Discount);
+                $('#sellingPrice').html(result.SellingPrice);
+            });
+        //decimal rrp, decimal sellingPrice, int discountType, decimal originalSalePrice
+    });
+</script>
