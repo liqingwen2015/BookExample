@@ -1,0 +1,77 @@
+﻿@model ASPPatterns.Chap3.SmartUI.Web.Models.Home.ProductVM
+@{
+    ViewBag.Title = "Index";
+}
+
+<style type="text/css">
+    table.gridtable {
+        font-family: verdana,arial,sans-serif;
+        font-size:11px;
+        color:#333333;
+        border-width: 1px;
+        border-color: #666666;
+        border-collapse: collapse;
+    }
+    table.gridtable th {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #666666;
+        background-color: #dedede;
+    }
+    table.gridtable td {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #666666;
+        background-color: #ffffff;
+    }
+</style>
+
+<br/>
+
+<div>
+    <select id="sltDiscountType">
+        <option value="0">No Discount</option>
+        <option value="1">Trade Discount</option>
+    </select>
+</div>
+
+<div>
+    <table class="gridtable">
+        <thead>
+        <tr>
+            <td>ProductId</td>
+            <td>ProductName</td>
+            <td>Rrp</td>
+            <td>SellingPrice</td>
+            <td>Discount</td>
+            <td>Savings</td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.ProductName</td>
+                <td>@product.Rrp</td>
+                <td>@product.SellingPrice</td>
+                <td>@product.Discount</td>
+                <td>@product.Savings</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $('#sltDiscountType').change(function() {
+        $.get('/home/index',
+            { discountType: $('#sltDiscountType').val() },
+            function() {
+
+            });
+    });
+</script>
